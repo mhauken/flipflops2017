@@ -9,7 +9,7 @@ class TimePicker extends Component {
   render() {
     return (
       <div className="TimePicker">
-        { this.props.timeDurations.map(timeDuration => <label key={timeDuration.duration}><input name="duration" type="radio" onClick={this.pickTimeWrapper()} />{timeDuration.label}</label> )}
+        { this.props.timeDurations.map(timeDuration => <label key={timeDuration.duration}><input name="duration" type="radio" onClick={this.pickTimeWrapper(timeDuration.duration)} />{timeDuration.label}</label> )}
       </div>
     );
   }
