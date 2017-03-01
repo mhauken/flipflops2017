@@ -8,7 +8,7 @@ class LocationList extends Component {
     return (
       <div className="LocationList">
         <TimePicker timeDurations={this.props.timeDurations} dispatch={this.props.dispatch}/>
-        { this.props.locations.map((location) => !location.hidden && <LocationItem key={location.id} location={location} />) }
+        { this.props.locations.map((location) => !location.hidden && <LocationItem key={location.id} {...location} />) }
       </div>
     );
   }

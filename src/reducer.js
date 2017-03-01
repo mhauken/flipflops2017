@@ -38,7 +38,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         timePicked: action.timeDuration,
-        locations: locations.map(location => location.timeDuration <= action.timeDuration ? location : { ...location, hidden: true }),
+        locations: state.locations.map(location => location.timeDuration <= action.timeDuration ? location : { ...location, hidden: true }),
       }
     default:
       return state;
