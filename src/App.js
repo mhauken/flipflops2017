@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import LocationList from './LocationList';
 import reducer from './reducer.js';
+import { Router, Route, browserHistory } from 'react-router';
+import LocationList from './LocationList';
+import LocationDetails from './LocationDetails';
+import './App.css';
+
 
 const store = createStore(reducer);
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}><LocationList /></Provider>
+      <Provider store={store}>
+        <Router history={browserHistory}>
+         <Route path="/" component={LocationList} />
+         <Route path="/location/:locationId" component={LocationDetails} />
+       </Router>
+      </Provider>
     );
   }
 }
