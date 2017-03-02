@@ -15,7 +15,7 @@ const initialState = {
       hidden: false,
       title: 'Auditorio Alfredo Kraus',
       timeDuration: 25,
-      location: {lat: 28.14961, lng: -15.43005},
+      position: {lat: 28.14961, lng: -15.43005},
       description: "This building looks like Batman",
       comments: [{
        username: "Anonymous", comment: "it's great", date: moment()
@@ -27,7 +27,7 @@ const initialState = {
       hidden: false,
       title: 'Auditorio Alfredo Kraus 2',
       timeDuration: 60,
-      location: {lat: 28.14364, lng: -15.4313},
+      position: {lat: 28.14364, lng: -15.4313},
       description: "This building looks like Batman2",
       comments: [],
     },
@@ -37,7 +37,7 @@ const initialState = {
       hidden: false,
       title: 'asdfasdf Alfredo Kraus 2',
       timeDuration: 73,
-      location: {lat: 28.14048, lng: -15.43015},
+      position: {lat: 28.14048, lng: -15.43015},
       description: "This building looks like Batman2",
       comments: [],
     },

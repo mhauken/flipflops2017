@@ -22,7 +22,7 @@ class LocationDetails extends Component {
           <p>{location.description}</p>
         </div>
 
-        <SimpleExample position={[location.location.lat, location.location.lng]} zoom={20}/>
+        <SimpleExample position={[location.position.lat, location.position.lng]} zoom={20}/>
 
         <CommentList comments={location.comments} locationId={location.id} dispatch={this.props.dispatch}/>
       </div>
