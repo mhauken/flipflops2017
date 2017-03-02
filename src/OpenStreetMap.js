@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
-class SimpleExample extends React.Component {
+class OpenStreetMap extends React.Component {
   render() {
     return (
       <Map center={this.props.position} zoom={this.props.zoom}>
@@ -17,4 +17,4 @@ class SimpleExample extends React.Component {
   }
 }
 
-export default SimpleExample;
+export default OpenStreetMap;
