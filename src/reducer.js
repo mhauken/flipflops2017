@@ -13,7 +13,7 @@ const initialState = {
       hidden: false,
       title: 'Auditorio Alfredo Kraus',
       timeDuration: 25,
-      location: {long: null, lat: null},
+      location: {lng: null, lat: null},
       description: "This building looks like Batman",
       comments: [{
        username: "Anonymous", comment: "it's great"
@@ -25,7 +25,7 @@ const initialState = {
       hidden: false,
       title: 'Auditorio Alfredo Kraus 2',
       timeDuration: 60,
-      location: {long: null, lat: null},
+      location: {lng: null, lat: null},
       description: "This building looks like Batman2",
       comments: [],
     },
@@ -35,7 +35,7 @@ const initialState = {
       hidden: false,
       title: 'asdfasdf Alfredo Kraus 2',
       timeDuration: 73,
-      location: {long: null, lat: null},
+      location: {lng: null, lat: null},
       description: "This building looks like Batman2",
       comments: [],
     },
