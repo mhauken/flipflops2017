@@ -9,6 +9,7 @@ import LocationDetails from './LocationDetails';
 import './App.css';
 import locations from './data';
 import {loadState} from './actions'
+import Global from './styling/global';
 
 const initState = () => {
   return {
