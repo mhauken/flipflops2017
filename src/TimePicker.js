@@ -62,15 +62,25 @@ class TimePicker extends Component {
     this.props.dispatch(pickTime(timeDuration));
   }
 
+  getCheckbox = (timeDuration) => {
+    return timeDuration.isChosen ?
+      <Checkbox id={timeDuration.duration}
+                name="duration"
+                type="radio"
+                checked
+                onClick={this.pickTimeWrapper(timeDuration.duration)} /> :
+      <Checkbox id={timeDuration.duration}
+              name="duration"
+              type="radio"
+              onClick={this.pickTimeWrapper(timeDuration.duration)} />
+  }
+
   render() {
     return (
       <TimePickWrapper>
       { this.props.timeDurations.map(timeDuration =>
         <TimePick key={timeDuration.duration}>
-          <Checkbox id={timeDuration.duration}
-            name="duration"
-            type="radio"
-            onClick={this.pickTimeWrapper(timeDuration.duration)} />
+          {this.getCheckbox(timeDuration)}
           <Label htmlFor={timeDuration.duration}>{timeDuration.label}</Label>
         </TimePick> )}
       </TimePickWrapper>
