@@ -51,7 +51,7 @@ const reducer = (state = initialState, action) => {
         locations: state.locations.map(location => ({
           ...location,
           hidden: location.timeDuration > action.timeDuration
-        })),
+        })).sort((location1, location2) => location1.timeDuration < location2.timeDuration),
       }
     case 'ADD_COMMENT':
       const comment = {
