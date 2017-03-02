@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import CommentList from './CommentList';
-import SimpleExample from './OpenStreetMap';
+import OpenStreetMap from './OpenStreetMap';
 
 class LocationDetails extends Component {
   getLocation = () => {
@@ -22,7 +22,7 @@ class LocationDetails extends Component {
           <p>{location.description}</p>
         </div>
 
-        <SimpleExample/>
+        <OpenStreetMap position={[location.position.lat, location.position.lng]} zoom={20}/>
 
         <CommentList comments={location.comments} locationId={location.id} dispatch={this.props.dispatch}/>
       </div>
