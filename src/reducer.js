@@ -1,49 +1,5 @@
 import moment from 'moment';
 
-const initialState = {
-  timePicked: null,
-  timeDurations: [
-    { duration: 30, label: '30 MIN', isChosen: false },
-    { duration: 60, label: '1H', isChosen: false },
-    { duration: 120, label: '2H', isChosen: false },
-    { duration: 180, label: '3H+', isChosen: false },
-    ],
-  locations: [
-    {
-      id: 1,
-      image: 'locations/1.jpg',
-      hidden: false,
-      title: 'Auditorio Alfredo Kraus',
-      timeDuration: 25,
-      position: {lat: 28.14961, lng: -15.43005},
-      description: "This building looks like Batman",
-      comments: [{
-       username: "Anonymous", comment: "it's great", date: moment()
-      }]
-    },
-    {
-      id: 2,
-      image: 'locations/2.jpg',
-      hidden: false,
-      title: 'Auditorio Alfredo Kraus 2',
-      timeDuration: 60,
-      position: {lat: 28.14364, lng: -15.4313},
-      description: "This building looks like Batman2",
-      comments: [],
-    },
-    {
-      id: 3,
-      image: 'locations/3.jpg',
-      hidden: false,
-      title: 'asdfasdf Alfredo Kraus 2',
-      timeDuration: 73,
-      position: {lat: 28.14048, lng: -15.43015},
-      description: "This building looks like Batman2",
-      comments: [],
-    },
-  ],
-};
-
 function getTimePicked(timeDurations, chosenTime) {
   const chosenDuration = timeDurations.find(duration => duration.duration === chosenTime);
   if(chosenDuration) {
@@ -52,8 +8,10 @@ function getTimePicked(timeDurations, chosenTime) {
   return chosenTime;
 }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = {}, action) => {
   switch (action.type) {
+    case 'LOAD_STATE':
+      return action.state;
     case 'PICK_TIME':
       const timePicked = getTimePicked(state.timeDurations, action.timeDuration);
       return {

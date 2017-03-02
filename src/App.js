@@ -7,9 +7,25 @@ import { Router, Route, browserHistory } from 'react-router';
 import LocationList from './LocationList';
 import LocationDetails from './LocationDetails';
 import './App.css';
+import locations from './data';
+import {loadState} from './actions'
+
+const initState = () => {
+  return {
+    timePicked: null,
+    timeDurations: [
+      { duration: 30, label: '30 MIN', isChosen: false },
+      { duration: 60, label: '1H', isChosen: false },
+      { duration: 120, label: '2H', isChosen: false },
+      { duration: 180, label: '3H+', isChosen: false },
+    ],
+    locations: locations,
+  };
+};
 
 const store = createStore(
    reducer,
+   initState(),
    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
  );
 
