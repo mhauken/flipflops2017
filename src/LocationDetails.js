@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import CommentList from './CommentList';
+import SimpleExample from './OpenStreetMap';
 
 class LocationDetails extends Component {
   getLocation = () => {
     const id = this.props.routeParams.locationId;
     return this.props.locations.find(location => location.id == id);
-  }
+  };
 
   render() {
     const location = this.getLocation();
@@ -20,6 +21,9 @@ class LocationDetails extends Component {
           <img src={location.image} />
           <p>{location.description}</p>
         </div>
+
+        <SimpleExample/>
+
         <CommentList comments={location.comments} locationId={location.id} dispatch={this.props.dispatch}/>
       </div>
     );
