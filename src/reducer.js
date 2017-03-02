@@ -12,7 +12,7 @@ const initialState = {
       image: null,
       hidden: false,
       title: 'Auditorio Alfredo Kraus',
-      timeDuration: 30,
+      timeDuration: 25,
       location: {long: null, lat: null},
       description: "This building looks like Batman",
       comments: [{
@@ -25,6 +25,16 @@ const initialState = {
       hidden: false,
       title: 'Auditorio Alfredo Kraus 2',
       timeDuration: 60,
+      location: {long: null, lat: null},
+      description: "This building looks like Batman2",
+      comments: [],
+    },
+    {
+      id: 3,
+      image: null,
+      hidden: false,
+      title: 'asdfasdf Alfredo Kraus 2',
+      timeDuration: 73,
       location: {long: null, lat: null},
       description: "This building looks like Batman2",
       comments: [],
@@ -43,6 +53,23 @@ const reducer = (state = initialState, action) => {
           hidden: location.timeDuration > action.timeDuration
         })),
       }
+    case 'ADD_COMMENT':
+      const comment = {
+        comment: action.comment,
+        username: action.username
+      };
+      return {
+        ...state,
+        locations: state.locations.map(location =>
+          {
+            const updated = {...location};
+            if (location.id == action.locationId) {
+              updated.comments.push(comment);
+            }
+            return updated;
+          }
+        )
+      };
     default:
       return state;
   }

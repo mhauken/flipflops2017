@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import TimeFormatter from './TimeFormatter';
 
 class LocationItem extends Component {
   shortenDescription = () => {
@@ -12,6 +13,7 @@ class LocationItem extends Component {
       <Link to={`location/${this.props.id}`} className="LocationItem">
         <img src={this.props.image} />
         <h2>{this.props.title}</h2>
+        <span>{TimeFormatter(this.props.timeDuration)}</span>
         <p>{this.shortenDescription()}</p>
       </Link>
     );
