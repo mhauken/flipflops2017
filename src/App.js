@@ -6,7 +6,6 @@ import reducer from './reducer.js';
 import { Router, Route, browserHistory } from 'react-router';
 import LocationList from './LocationList';
 import LocationDetails from './LocationDetails';
-import './App.css';
 import locations from './data';
 import {loadState} from './actions'
 import Global from './styling/global';
