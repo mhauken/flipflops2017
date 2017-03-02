@@ -24,7 +24,7 @@ const Back = styled(Link)`
 
 const Picture = styled.div`
   width: 100%;
-  height: 120px;
+  height: 150px;
   margin-top: -48px;
   border-radius: 3px;
   border: 5px solid #fff;
@@ -32,6 +32,7 @@ const Picture = styled.div`
   z-index: 999;
   position: relative;
   margin-bottom: 12px;
+  background-size: cover;
 `
 
 class LocationDetails extends Component {
