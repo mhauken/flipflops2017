@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const initialState = {
   timePicked: null,
   timeDurations: [
@@ -13,10 +15,10 @@ const initialState = {
       hidden: false,
       title: 'Auditorio Alfredo Kraus',
       timeDuration: 25,
-      location: {long: null, lat: null},
+      location: {lng: null, lat: null},
       description: "This building looks like Batman",
       comments: [{
-       username: "Anonymous", comment: "it's great"
+       username: "Anonymous", comment: "it's great", date: moment()
       }]
     },
     {
@@ -25,7 +27,7 @@ const initialState = {
       hidden: false,
       title: 'Auditorio Alfredo Kraus 2',
       timeDuration: 60,
-      location: {long: null, lat: null},
+      location: {lng: null, lat: null},
       description: "This building looks like Batman2",
       comments: [],
     },
@@ -35,7 +37,7 @@ const initialState = {
       hidden: false,
       title: 'asdfasdf Alfredo Kraus 2',
       timeDuration: 73,
-      location: {long: null, lat: null},
+      location: {lng: null, lat: null},
       description: "This building looks like Batman2",
       comments: [],
     },
@@ -51,12 +53,13 @@ const reducer = (state = initialState, action) => {
         locations: state.locations.map(location => ({
           ...location,
           hidden: location.timeDuration > action.timeDuration
-        })),
+        })).sort((location1, location2) => location1.timeDuration < location2.timeDuration),
       }
     case 'ADD_COMMENT':
       const comment = {
         comment: action.comment,
-        username: action.username
+        username: action.username,
+        date: moment(),
       };
       return {
         ...state,
@@ -66,6 +69,7 @@ const reducer = (state = initialState, action) => {
             if (location.id == action.locationId) {
               updated.comments.push(comment);
             }
+            updated.comments.sort((comment1, comment2) => comment1.date < comment2.date)
             return updated;
           }
         )
