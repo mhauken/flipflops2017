@@ -5,6 +5,8 @@ import styled from 'styled-components';
 const TimePickWrapper = styled.div`
   width: 100%;
   display: table;
+  table-layout: fixed;
+  padding-top: 24px;
 `
 const TimePick = styled.div`
   text-align: center;
@@ -15,21 +17,25 @@ const TimePick = styled.div`
 const Label = styled.label`
   position: relative;
   cursor: pointer;
+  display: block;
   &::after{
     content: '';
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: block;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
     z-index: -1;
+    background-color: transparent;
+    transition: transform .3s cubic-bezier(.4,.6,.42,1.35), background-color .2s;
   }
   &:hover, &:active {
     &::after{
       background-color: #DFDFDF;
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 
@@ -44,6 +50,7 @@ const Checkbox = styled.input`
     color: #fff;
     &::after {
       background-color: #445561;
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 `
