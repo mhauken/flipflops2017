@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import CommentList from './CommentList';
 
 class LocationDetails extends Component {
@@ -13,6 +14,9 @@ class LocationDetails extends Component {
     return (
       <div>
         <div className="LocationDetails">
+          <Link to="/" className="GoBackButton">
+            <button type="btn">GO BACK</button>
+          </Link>
           <img src={location.image} />
           <p>{location.description}</p>
         </div>
