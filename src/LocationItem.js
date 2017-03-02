@@ -1,6 +1,51 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import TimeFormatter from './TimeFormatter';
+import styled from 'styled-components';
+
+const WrapperObject = styled.div`
+  margin: auto;
+  max-width: 350px;
+  padding: 24px;
+`;
+
+const WrappedLink = (props) => <Link to={props.to} className={props.className} children={props.children} />
+
+const LinkLocation = styled(WrappedLink)`
+  display: block;
+  width: 100%;
+  margin-bottom: 24px;
+  min-height: 170px;
+  border-radius: 3px;
+  box-shadow: 0 11px 14px rgba(0, 0, 0, 0.3);
+  background-image: url(${props => props.image});
+  background-size: cover;
+  padding: 12px;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: ${props => props.color};
+    opacity: 0.8;
+  }
+`
+
+const Title = styled.h2`
+  font-size: 20px;
+`
+
+const Content = styled.div`
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+`
 
 class LocationItem extends Component {
   shortenDescription = () => {
@@ -10,12 +55,15 @@ class LocationItem extends Component {
 
   render() {
     return (
-      <Link to={`location/${this.props.id}`} className="LocationItem">
-        <img src={this.props.image} />
-        <h2>{this.props.title}</h2>
+      <LinkLocation color={this.props.color} to={`location/${this.props.id}`} image={this.props.image}>
+        <Content>
+          <Title>{this.props.title}</Title>
+          <p>{this.shortenDescription()}</p>
+        </Content>
+
         <span>{TimeFormatter(this.props.timeDuration)}</span>
-        <p>{this.shortenDescription()}</p>
-      </Link>
+
+      </LinkLocation>
     );
   }
 }

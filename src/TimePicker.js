@@ -7,6 +7,7 @@ const TimePickWrapper = styled.div`
   display: table;
   table-layout: fixed;
   padding-top: 24px;
+  height: 40px;
 `
 const TimePick = styled.div`
   text-align: center;
