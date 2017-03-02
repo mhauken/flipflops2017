@@ -11,7 +11,7 @@ const initialState = {
   locations: [
     {
       id: 1,
-      image: 'locations/1.jpg',
+      image: '/locations/1.jpg',
       hidden: false,
       title: 'Auditorio Alfredo Kraus',
       timeDuration: 25,
@@ -23,7 +23,7 @@ const initialState = {
     },
     {
       id: 2,
-      image: 'locations/2.jpg',
+      image: '/locations/2.jpg',
       hidden: false,
       title: 'Auditorio Alfredo Kraus 2',
       timeDuration: 60,
@@ -33,7 +33,7 @@ const initialState = {
     },
     {
       id: 3,
-      image: 'locations/3.jpg',
+      image: '/locations/3.jpg',
       hidden: false,
       title: 'asdfasdf Alfredo Kraus 2',
       timeDuration: 73,
