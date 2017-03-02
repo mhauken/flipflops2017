@@ -17,7 +17,7 @@ const LinkLocation = styled(WrappedLink)`
   margin-bottom: 24px;
   min-height: 170px;
   border-radius: 3px;
-  box-shadow: 0 11px 14px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   background-image: url(${props => props.image});
   background-size: cover;
   padding: 12px;
@@ -25,6 +25,7 @@ const LinkLocation = styled(WrappedLink)`
   text-decoration: none;
   overflow: hidden;
   position: relative;
+  transition: transform .2s, box-shadow .2s;
   &::after {
     content: "";
     position: absolute;
@@ -35,6 +36,10 @@ const LinkLocation = styled(WrappedLink)`
     background-color: ${props => props.color};
     opacity: 0.8;
   }
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 11px 14px rgba(0, 0, 0, 0.25);
+  }
 `
 
 const Title = styled.h2`
@@ -43,7 +48,20 @@ const Title = styled.h2`
 
 const Content = styled.div`
   font-size: 14px;
-  position: relative;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  padding: 12px;
+  width: 100%;
+  transform: translate(-50%, -50%);
+`
+
+const Time = styled.span`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 12px;
   z-index: 1;
 `
 
@@ -61,7 +79,7 @@ class LocationItem extends Component {
           <p>{this.shortenDescription()}</p>
         </Content>
 
-        <span>{TimeFormatter(this.props.timeDuration)}</span>
+        <Time>{TimeFormatter(this.props.timeDuration)}</Time>
 
       </LinkLocation>
     );

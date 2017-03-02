@@ -6,7 +6,7 @@ import reducer from './reducer.js';
 import { Router, Route, browserHistory } from 'react-router';
 import LocationList from './LocationList';
 import LocationDetails from './LocationDetails';
-import './App.css';
+import Global from './styling/global';
 
 const store = createStore(
    reducer,

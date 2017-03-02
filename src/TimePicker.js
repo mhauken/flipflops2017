@@ -6,8 +6,8 @@ const TimePickWrapper = styled.div`
   width: 100%;
   display: table;
   table-layout: fixed;
-  padding-top: 24px;
-  height: 40px;
+  padding: 24px 0;
+  margin-bottom: 24px;
 `
 const TimePick = styled.div`
   text-align: center;
@@ -19,6 +19,7 @@ const Label = styled.label`
   position: relative;
   cursor: pointer;
   display: block;
+  font-size: 12px;
   &::after{
     content: '';
     width: 60px;
