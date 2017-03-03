@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import {geolocated} from 'react-geolocated';
 import { createStore } from 'redux';
 import reducer from './reducer.js';
 import { Router, Route, browserHistory } from 'react-router';
@@ -7,6 +8,7 @@ import LocationList from './LocationList';
 import LocationDetails from './LocationDetails';
 import locations from './data';
 import injectGlobal from './styling/global';
+import { setPosition } from './actions';
 
 const initState = () => {
   return {
@@ -29,6 +31,12 @@ const store = createStore(
  );
 
 class App extends Component {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isGeolocationAvailable && nextProps.coords) {
+      store.dispatch(setPosition(nextProps.coords));
+    }
+  }
+
   render() {
     return (
       <Provider store={store}>
@@ -41,4 +49,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000
+})(App);

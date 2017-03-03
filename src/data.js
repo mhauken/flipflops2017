@@ -11,7 +11,8 @@ const locations = [
     description: "Locals keep saying Las Canteras is one of the nation’s best urban beaches. And they have every reason to believe it. This is a beach blessed with fine weather practically all year round. A getaway within the capital city, a place where the hands of time seem to have stopped. A type of beach-style Central Park, where sports can be played any day of the week. Don’t forget your swimming clothes and your surf board! Furthermore, the island is a large marine life reserve. Its sea bed is home to a thousand fish species. On dry land, it shelters tourists, fishermen, and surfers. And it has a peculiar feature, which locals know as “La Barra”, a long rock formation spreading not far from the sand. A singular strip of volcanic rock that protects a large chunk of the beach from the tides, and which turns our bay into the best place this side of the globe to swim and practically “walk on the water” on days of low tide.",
     comments: [{
       username: "Anonymous", comment: "it's great", date: moment()
-    }]
+    }],
+    distance: null,
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ const locations = [
     timeDuration: 35,
     position: {lat: 28.098467, lng: -15.415550},
     description: "This is a district",
-    comments: []
+    comments: [],
+    distance: null,
   },
   {
     id: 3,
@@ -31,7 +33,8 @@ const locations = [
     timeDuration:55,
     position: {lat: 28.066520, lng: -15.456779},
     description: "This is a botanic garden",
-    comments: []
+    comments: [],
+    distance: null,
   },
   {
     id: 4,
@@ -41,7 +44,8 @@ const locations = [
     timeDuration: 60,
     position: {lat: 28.101583, lng: -15.414071},
     description: "This is a house",
-    comments: []
+    comments: [],
+    distance: null,
   },
   {
     id: 5,
@@ -51,7 +55,8 @@ const locations = [
     timeDuration: 86,
     position: {lat: 28.031720, lng: -15.455764},
     description: "This is a volcano",
-    comments: []
+    comments: [],
+    distance: null,
   },
   {
     id: 6,
@@ -61,7 +66,8 @@ const locations = [
     timeDuration: 120,
     position: {lat: 28.106050, lng: -15.416341},
     description: "No idea what is it",
-    comments: []
+    comments: [],
+    distance: null,
   },
   {
     id: 7,
@@ -71,7 +77,8 @@ const locations = [
     timeDuration: 380,
     position: {lat: 28.120392, lng: -15.416341},
     description: "This is a park",
-    comments: []
+    comments: [],
+    distance: null,
   },
   {
     id: 8,
@@ -81,7 +88,8 @@ const locations = [
     timeDuration: 280,
     position: {lat: 28.140908, lng: -15.429839},
     description: "This is a museum",
-    comments: []
+    comments: [],
+    distance: null,
   },
   {
     id: 9,
@@ -91,7 +99,8 @@ const locations = [
     timeDuration: 45,
     position: {lat: 28.128353, lng: -15.448291},
     description: "This is a mall",
-    comments: []
+    comments: [],
+    distance: null,
   },
   {
     id: 10,
@@ -101,7 +110,8 @@ const locations = [
     timeDuration: 150,
     position: {lat: 28.100814, lng: -15.414767},
     description: "This is a cathedral",
-    comments: []
+    comments: [],
+    distance: null,
   },
 ];
 

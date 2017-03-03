@@ -1,4 +1,5 @@
 import moment from 'moment';
+import getGeolocationDataForMap from './GeoLocationHelper';
 
 function getTimePicked(timeDurations, chosenTime) {
   const chosenDuration = timeDurations.find(duration => duration.duration === chosenTime);
@@ -15,11 +16,16 @@ const reducer = (state = {}, action) => {
     case 'SET_POSITION':
       return {
         ...state,
-        currentPosition: action.position,
+        currentPosition: action.currentPosition,
+        locations: state.locations.map(location => ({
+          ...location,
+          geoLocationData: getGeolocationDataForMap(location.position, action.currentPosition),
+        })).sort((location1, location2) => location1.timeDuration < location2.timeDuration),
       };
     case 'PICK_TIME':
       const timePicked = getTimePicked(state.timeDurations, action.timeDuration);
       return {
+        ...state,
         timeDurations: state.timeDurations.map(duration => {
           return {
             ...duration,
