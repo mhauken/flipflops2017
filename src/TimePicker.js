@@ -20,6 +20,10 @@ const Label = styled.label`
   cursor: pointer;
   display: block;
   font-size: 12px;
+  -webkit-tap-highlight-color: transparent;
+  &:focus{
+    outline: none;
+  }
   &::after{
     content: '';
     width: 60px;
