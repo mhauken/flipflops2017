@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import TimeFormatter from './TimeFormatter';
+import DistanceFormatter from './DistanceFormatter';
 import styled from 'styled-components';
 
 const WrapperObject = styled.div`
@@ -89,7 +90,7 @@ class LocationItem extends Component {
         </Content>
 
         { this.props.geoLocationData && this.props.geoLocationData.distance &&
-          <Walk>{this.props.geoLocationData.distance} m</Walk> }
+          <Walk>{DistanceFormatter(this.props.geoLocationData.distance)}</Walk> }
           <Time>{TimeFormatter(this.props.timeDuration)}</Time>
 
       </LinkLocation>
