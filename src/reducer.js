@@ -1,6 +1,10 @@
 import moment from 'moment';
 import getGeolocationDataForMap from './GeoLocationHelper';
 
+const isEmptyString = (str) => {
+  return !str || str === '';
+};
+
 function getTimePicked(timeDurations, chosenTime) {
   const chosenDuration = timeDurations.find(duration => duration.duration === chosenTime);
   if(chosenDuration) {
@@ -40,6 +44,12 @@ const reducer = (state = {}, action) => {
         ),
       }
     case 'ADD_COMMENT':
+      if (isEmptyString(action.comment)) {
+        return {...state};
+      }
+      if (isEmptyString(action.username)) {
+        action.username = 'Anonym';
+      }
       const comment = {
         comment: action.comment,
         username: action.username,
