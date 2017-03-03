@@ -58,6 +58,7 @@ injectGlobal`
     height: 300px;
     width: 100%;
     margin: 0 auto;
+    z-index: -1;
   }
   .leaflet-control-zoom,
   .leaflet-control-attribution {
