@@ -19,8 +19,7 @@ const calculcateDistanceBetweenLocations = (location1, location2) => {
   return EARTH_RADIUS * c * 1000;
 }
 
-const calculcateZoom = (location1, location2) => {
-  const distance = calculcateDistanceBetweenLocations(location1, location2);
+const calculcateZoom = (distance) => {
   return Math.floor(25 - Math.log2(distance));
 }
 
@@ -39,7 +38,8 @@ const calculateGeoMidpoint = (location1, location2) => {
 }
 
 const getGeolocationDataForMap = (location1, location2) => {
-  return { midpoint: calculateGeoMidpoint(location1, location2), zoom: calculcateZoom(location1, location2) };
+  const distance = calculcateDistanceBetweenLocations(location1, location2);
+  return { midpoint: calculateGeoMidpoint(location1, location2), zoom: calculcateZoom(distance), distance };
 }
 
 export default getGeolocationDataForMap;

@@ -14,7 +14,6 @@ export const addComment = (username, comment, locationId) => {
 }
 
 export const setPosition = (position) => {
-  console.log("Pos inside the action", position)
   const currentPosition = { lat: position.latitude, lng: position.longitude }
   return { type: 'SET_POSITION', currentPosition };
 };

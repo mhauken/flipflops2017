@@ -5,7 +5,6 @@ import CommentList from './CommentList';
 import OpenStreetMap from './OpenStreetMap';
 import styled from 'styled-components';
 import Wrapper from './styling/wrapper';
-import getGeolocationDataForMap from './GeoLocationHelper';
 
 const Back = styled(Link)`
   width: 100%;
@@ -47,15 +46,11 @@ class LocationDetails extends Component {
   };
 
   getOpenStreetMap() {
-    //if (this.props.isGeolocationAvailable && this.props.coords) {
-    console.log("prop", this.props);
-    console.log("currentPositions", this.props.currentPosition);
     if (this.props.currentPosition) {
-      const geolocationData = getGeolocationDataForMap(this.location.position, this.props.currentPosition);
       return <OpenStreetMap currentPosition={[this.props.currentPosition.lat, this.props.currentPosition.lng]}
                             position={[this.location.position.lat, this.location.position.lng]}
-                            zoom={geolocationData.zoom}
-                            middlePosition={geolocationData.midpoint}/>
+                            zoom={this.location.geoLocationData.zoom}
+                            middlePosition={this.location.geoLocationData.midpoint}/>
     }
     return <OpenStreetMap position={[this.location.position.lat, this.location.position.lng]}
                           zoom={14}

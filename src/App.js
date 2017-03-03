@@ -32,7 +32,6 @@ const store = createStore(
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {
-    console.log("Is there a reset?")
     if (nextProps.isGeolocationAvailable && nextProps.coords) {
       store.dispatch(setPosition(nextProps.coords));
     }
