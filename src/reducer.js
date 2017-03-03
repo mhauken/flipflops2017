@@ -35,7 +35,9 @@ const reducer = (state = {}, action) => {
         locations: state.locations.map(location => ({
           ...location,
           hidden: timePicked && location.timeDuration > timePicked
-        })).sort((location1, location2) => location1.timeDuration < location2.timeDuration),
+        })).sort((location1, location2) =>
+          state.currentPosition ? location1.geoLocationData.distance > location2.geoLocationData.distance : location1.timeDuration < location2.timeDuration
+        ),
       }
     case 'ADD_COMMENT':
       const comment = {
