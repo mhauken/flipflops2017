@@ -70,6 +70,9 @@ class AddComment extends Component {
 
   submitNewComment = (evt) => {
     evt.preventDefault();
+    if(!this.state.comment || !this.state.username) {
+      return;
+    }
     this.props.dispatch(addComment(this.state.username, this.state.comment, this.props.locationId));
     this.setState({
       comment: '',
