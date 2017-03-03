@@ -13,13 +13,15 @@ const reducer = (state = {}, action) => {
     case 'LOAD_STATE':
       return action.state;
     case 'SET_POSITION':
+      console.log("Setting position to ", action.currentPosition);
       return {
         ...state,
-        currentPosition: action.position,
+        currentPosition: action.currentPosition,
       };
     case 'PICK_TIME':
       const timePicked = getTimePicked(state.timeDurations, action.timeDuration);
       return {
+        ...state,
         timeDurations: state.timeDurations.map(duration => {
           return {
             ...duration,

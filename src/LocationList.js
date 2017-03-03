@@ -4,6 +4,7 @@ import LocationItem from './LocationItem';
 import TimePicker from './TimePicker';
 import Wrapper from './styling/wrapper';
 
+
 const Colors = ['#FDD161', '#E8A13D', '#29A4AC', '#445561', '#AFD5D9'];
 
 class LocationList extends Component {
@@ -16,5 +17,7 @@ class LocationList extends Component {
     );
   }
 }
+
+
 
 export default connect(state => state)(LocationList);

@@ -5,7 +5,6 @@ import CommentList from './CommentList';
 import OpenStreetMap from './OpenStreetMap';
 import styled from 'styled-components';
 import Wrapper from './styling/wrapper';
-import {geolocated} from 'react-geolocated';
 import getGeolocationDataForMap from './GeoLocationHelper';
 
 const Back = styled(Link)`
@@ -52,10 +51,12 @@ class LocationDetails extends Component {
   };
 
   getOpenStreetMap() {
-    if (this.props.isGeolocationAvailable && this.props.coords) {
-      const currentLocation = { lat: this.props.coords.latitude, lng: this.props.coords.longitude };
-      const geolocationData = getGeolocationDataForMap(this.location.position, currentLocation);
-      return <OpenStreetMap currentPosition={[this.props.coords.latitude, this.props.coords.longitude]}
+    //if (this.props.isGeolocationAvailable && this.props.coords) {
+    console.log("prop", this.props);
+    console.log("currentPositions", this.props.currentPosition);
+    if (this.props.currentPosition) {
+      const geolocationData = getGeolocationDataForMap(this.location.position, this.props.currentPosition);
+      return <OpenStreetMap currentPosition={[this.props.currentPosition.lat, this.props.currentPosition.lng]}
                             position={[this.location.position.lat, this.location.position.lng]}
                             zoom={geolocationData.zoom}
                             middlePosition={geolocationData.midpoint}/>
@@ -84,9 +85,4 @@ class LocationDetails extends Component {
   }
 }
 
-export default geolocated({
-  positionOptions: {
-    enableHighAccuracy: false,
-  },
-  userDecisionTimeout: 5000
-})(connect(state => state)(LocationDetails));
+export default connect(state => state)(LocationDetails);
