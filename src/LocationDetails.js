@@ -39,6 +39,10 @@ const Title = styled.h1`
 
 `
 
+const Description = styled.p`
+  margin-bottom: 24px;
+`
+
 class LocationDetails extends Component {
   getLocation = () => {
     const id = this.props.routeParams.locationId;
@@ -56,7 +60,7 @@ class LocationDetails extends Component {
         <Wrapper>
           <Picture image={location.image} />
           <Title>{location.title}</Title>
-          <p>{location.description}</p>
+          <Description>{location.description}</Description>
           <CommentList comments={location.comments} locationId={location.id} dispatch={this.props.dispatch}/>
         </Wrapper>
       </div>
