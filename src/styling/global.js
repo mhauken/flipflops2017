@@ -65,12 +65,14 @@ injectGlobal`
   }
 
   .example-enter {
-      transform: translateX(-100vw);
+      transform: translate3d(0,0, 50px);
+      box-shadow: 0 11px 20px rgba(0, 0, 0, 0.1);
     }
 
     .example-enter.example-enter-active {
-      transform: translateX(0);
-      transition: transform .5s cubic-bezier(.4,.6,.42,1.35);
+      transform: translate3d(0,0,0);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      transition: transform .5s cubic-bezier(.4,.6,.42,1.35), box-shadow .5s cubic-bezier(.4,.6,.42,1.35);
       &:nth-child(2) {
         transition-delay: .05s;
       }
