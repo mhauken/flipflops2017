@@ -39,7 +39,7 @@ const WelcomeImage = styled.img`
 const Container = styled.div`
   position: relative;
   padding-top: 200px;
-  transition: transform .5s ease-in;
+  transition: transform .6s ease-out;
   transform: translateY(${ props => props.timePicked ? '-268px' : '0' });
 `
 

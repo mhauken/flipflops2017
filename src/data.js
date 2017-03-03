@@ -93,7 +93,7 @@ const locations = [
   },
   {
     id: 9,
-    image: '/locations/centro.jpg',
+    image: '/locations/centro_comercial_las_arenas.jpg',
     hidden: false,
     title: 'Centro Comercial Las Arenas',
     timeDuration: 45,

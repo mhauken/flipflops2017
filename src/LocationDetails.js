@@ -5,6 +5,7 @@ import CommentList from './CommentList';
 import OpenStreetMap from './OpenStreetMap';
 import styled, { keyframes } from 'styled-components';
 import Wrapper from './styling/wrapper';
+import DistanceFormatter from './DistanceFormatter';
 
 const appear = keyframes`
   from {
@@ -53,6 +54,14 @@ const Description = styled.p`
   animation: ${appear} .4s  ease-in 1;
 `
 
+const Walk = styled.span`
+  font-size: 14px;
+  color: #AFD5D9;
+  margin-bottom: 8px;
+  display: inline-block;
+  animation: ${appear} .4s  ease-in 1;
+`
+
 
 class LocationDetails extends Component {
   getLocation = () => {
@@ -83,6 +92,7 @@ class LocationDetails extends Component {
         <Wrapper>
           <Picture image={this.location.image}/>
 		      <Title>{this.location.title}</Title>
+          {this.location.geoLocationData && <Walk>{DistanceFormatter(this.location.geoLocationData.distance)} to location</Walk>}
           <Description>{this.location.description}</Description>
           <CommentList comments={this.location.comments} locationId={this.location.id} dispatch={this.props.dispatch}/>
         </Wrapper>
