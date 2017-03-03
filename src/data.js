@@ -8,7 +8,7 @@ const locations = [
     title: 'Playa de Las Canteras',
     timeDuration: 25,
     position: {lat: 28.140578, lng: -15.435765},
-    description: "This is a beach",
+    description: "Locals keep saying Las Canteras is one of the nation’s best urban beaches. And they have every reason to believe it. This is a beach blessed with fine weather practically all year round. A getaway within the capital city, a place where the hands of time seem to have stopped. A type of beach-style Central Park, where sports can be played any day of the week. Don’t forget your swimming clothes and your surf board! Furthermore, the island is a large marine life reserve. Its sea bed is home to a thousand fish species. On dry land, it shelters tourists, fishermen, and surfers. And it has a peculiar feature, which locals know as “La Barra”, a long rock formation spreading not far from the sand. A singular strip of volcanic rock that protects a large chunk of the beach from the tides, and which turns our bay into the best place this side of the globe to swim and practically “walk on the water” on days of low tide.",
     comments: [{
       username: "Anonymous", comment: "it's great", date: moment()
     }]

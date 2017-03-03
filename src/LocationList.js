@@ -19,7 +19,7 @@ class LocationList extends Component {
           <ReactCSSTransitionGroup
           transitionName="example"
           transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
+          transitionLeaveTimeout={500}>
             { this.props.timePicked && this.props.locations.map((location, index) => !location.hidden && <LocationItem color={Colors[index % Colors.length]}key={location.id} {...location} />) }
           </ReactCSSTransitionGroup>
         </Wrapper>

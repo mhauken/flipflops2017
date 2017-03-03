@@ -65,21 +65,39 @@ injectGlobal`
   }
 
   .example-enter {
-      opacity: 0.01;
+      transform: translateX(-100vw);
     }
 
     .example-enter.example-enter-active {
-      opacity: 1;
-      transition: opacity 500ms ease-in;
+      transform: translateX(0);
+      transition: transform .5s cubic-bezier(.4,.6,.42,1.35);
+      &:nth-child(2) {
+        transition-delay: .05s;
+      }
+      &:nth-child(3) {
+        transition-delay: .1s;
+      }
+      &:nth-child(4) {
+        transition-delay: .15s;
+      }
     }
 
     .example-leave {
-      opacity: 1;
+      transform: translateX(0);
     }
 
     .example-leave.example-leave-active {
-      opacity: 0.01;
-      transition: opacity 300ms ease-in;
+      transform: translateX(100vw);
+      transition: transform .5s cubic-bezier(.4,.6,.42,1.35);
+      &:nth-child(2) {
+        transition-delay: .05s;
+      }
+      &:nth-child(3) {
+        transition-delay: .1s;
+      }
+      &:nth-child(4) {
+        transition-delay: .15s;
+      }
     }
 
 `;
