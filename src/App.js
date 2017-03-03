@@ -6,12 +6,11 @@ import { Router, Route, browserHistory } from 'react-router';
 import LocationList from './LocationList';
 import LocationDetails from './LocationDetails';
 import locations from './data';
-import {loadState} from './actions'
-import Global from './styling/global';
 
 const initState = () => {
   return {
     timePicked: null,
+    currentPosition: null,
     timeDurations: [
       { duration: 30, label: '30 MIN', isChosen: false },
       { duration: 60, label: '1H', isChosen: false },

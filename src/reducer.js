@@ -12,6 +12,11 @@ const reducer = (state = {}, action) => {
   switch (action.type) {
     case 'LOAD_STATE':
       return action.state;
+    case 'SET_POSITION':
+      return {
+        ...state,
+        currentPosition: action.position,
+      };
     case 'PICK_TIME':
       const timePicked = getTimePicked(state.timeDurations, action.timeDuration);
       return {

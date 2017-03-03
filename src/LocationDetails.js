@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import CommentList from './CommentList';
 import OpenStreetMap from './OpenStreetMap';
 import styled from 'styled-components';
 import Wrapper from './styling/wrapper';
+import {geolocated} from 'react-geolocated';
+import getGeolocationDataForMap from './GeoLocationHelper';
 
 const Back = styled(Link)`
   width: 100%;
@@ -49,23 +51,42 @@ class LocationDetails extends Component {
     return this.props.locations.find(location => location.id == id);
   };
 
+  getOpenStreetMap() {
+    if (this.props.isGeolocationAvailable && this.props.coords) {
+      const currentLocation = { lat: this.props.coords.latitude, lng: this.props.coords.longitude };
+      const geolocationData = getGeolocationDataForMap(this.location.position, currentLocation);
+      return <OpenStreetMap currentPosition={[this.props.coords.latitude, this.props.coords.longitude]}
+                            position={[this.location.position.lat, this.location.position.lng]}
+                            zoom={geolocationData.zoom}
+                            middlePosition={geolocationData.midpoint}/>
+    }
+    return <OpenStreetMap position={[this.location.position.lat, this.location.position.lng]}
+                          zoom={14}
+                          middlePosition={{lat: this.location.position.lat, lng: this.location.position.lng}}/>
+  }
+
   render() {
-    const location = this.getLocation();
+    this.location = this.getLocation();
     return (
       <div>
         <Back to="/">
           Go back
         </Back>
-          <OpenStreetMap position={[location.position.lat, location.position.lng]} zoom={20}/>
+        {this.getOpenStreetMap()}
         <Wrapper>
-          <Picture image={location.image} />
-          <Title>{location.title}</Title>
-          <Description>{location.description}</Description>
-          <CommentList comments={location.comments} locationId={location.id} dispatch={this.props.dispatch}/>
+          <Picture image={this.location.image}/>
+		      <Title>{this.location.title}</Title>
+          <Description>{this.location.description}</Description>
+          <CommentList comments={this.location.comments} locationId={this.location.id} dispatch={this.props.dispatch}/>
         </Wrapper>
       </div>
     );
   }
 }
 
-export default connect(state => state)(LocationDetails);
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000
+})(connect(state => state)(LocationDetails));

@@ -12,3 +12,7 @@ export const pickTime = (timeDuration) => {
 export const addComment = (username, comment, locationId) => {
   return { type: 'ADD_COMMENT', username, comment, locationId};
 }
+
+export const setPosition = (position) => {
+  return { type: 'SET_POSITION', position };
+};
