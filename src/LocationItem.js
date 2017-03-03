@@ -93,6 +93,7 @@ class LocationItem extends Component {
           <p>{this.shortenDescription()}</p>
         </Content>
 
+        { this.props.geoLocationData && this.props.geoLocationData.distance && <Time>{this.props.geoLocationData.distance}</Time> }
         <Time>{TimeFormatter(this.props.timeDuration)}</Time>
 
       </LinkLocation>
