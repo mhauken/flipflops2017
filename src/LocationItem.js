@@ -24,7 +24,7 @@ const WrapperObject = styled.div`
 const WrappedLink = (props) => <Link to={props.to} className={props.className} children={props.children} />
 
 const LinkLocation = styled(WrappedLink)`
-  animation: ${appear} .3s linear 1;
+  /*animation: ${appear} .3s linear 1;*/
   display: block;
   width: 100%;
   margin-bottom: 24px;
@@ -33,6 +33,7 @@ const LinkLocation = styled(WrappedLink)`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   background-image: url(${props => props.image});
   background-size: cover;
+  background-position: center;
   padding: 12px;
   color: #fff;
   text-decoration: none;
@@ -80,7 +81,7 @@ const Time = styled.span`
 
 class LocationItem extends Component {
   shortenDescription = () => {
-    return `${this.props.description.substring(0, 10)}...`
+    return `${this.props.description.substring(0, 125)}...`
   };
 
 

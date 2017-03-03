@@ -7,6 +7,7 @@ import { Router, Route, browserHistory } from 'react-router';
 import LocationList from './LocationList';
 import LocationDetails from './LocationDetails';
 import locations from './data';
+import injectGlobal from './styling/global';
 import { setPosition } from './actions';
 
 const initState = () => {

@@ -9,11 +9,6 @@ import getGeolocationDataForMap from './GeoLocationHelper';
 
 const Back = styled(Link)`
   width: 100%;
-  /*position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 999999999;
-  min-height: 60px;*/
   display: inline-block;
   color: #445561;
   padding: 12px;
@@ -34,6 +29,7 @@ const Picture = styled.div`
   position: relative;
   margin-bottom: 12px;
   background-size: cover;
+  background-position: center;
 `
 
 const Title = styled.h1`
