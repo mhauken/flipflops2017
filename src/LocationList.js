@@ -4,6 +4,7 @@ import LocationItem from './LocationItem';
 import TimePicker from './TimePicker';
 import Wrapper from './styling/wrapper';
 import styled from 'styled-components';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 
@@ -15,7 +16,12 @@ class LocationList extends Component {
         <Title>How much time do you have?</Title>
         <Wrapper>
           <TimePicker timeDurations={this.props.timeDurations} dispatch={this.props.dispatch}/>
-          { this.props.timePicked && this.props.locations.map((location, index) => !location.hidden && <LocationItem color={Colors[index % Colors.length]}key={location.id} {...location} />) }
+          <ReactCSSTransitionGroup
+          transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+            { this.props.timePicked && this.props.locations.map((location, index) => !location.hidden && <LocationItem color={Colors[index % Colors.length]}key={location.id} {...location} />) }
+          </ReactCSSTransitionGroup>
         </Wrapper>
       </Container>
 
