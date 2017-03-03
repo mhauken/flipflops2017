@@ -6,7 +6,7 @@ const Comment = styled.div`
   padding: 12px;
   border-radius: 3px;
   margin-bottom: 12px;
-  color: ${ props => props.color == "#445561" ? '#fff' : '#000' };
+  color: ${ props => props.color === "#445561" ? '#fff' : '#000' };
 `
 
 const Name = styled.span`
