@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import LocationItem from './LocationItem';
 import TimePicker from './TimePicker';
 import Wrapper from './styling/wrapper';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
-
 
 class LocationList extends Component {
   render() {
@@ -29,6 +27,16 @@ class LocationList extends Component {
   }
 }
 
+const FadeIn = keyframes`
+  from {
+    transform: opacity(0);
+  }
+
+  to {
+    transform: opacity(1);
+  }
+`;
+
 const WelcomeImage = styled.img`
   display: block;
   position: absolute;
@@ -36,6 +44,7 @@ const WelcomeImage = styled.img`
   left: 50%;
   transform: translateX(-50%);
   height: 160px;
+  animation: ${FadeIn} .5s linear 1;
 `
 
 const Container = styled.div`
@@ -43,6 +52,7 @@ const Container = styled.div`
   padding-top: 200px;
   transition: transform .3s ease-in;
   transform: translateY(${ props => props.timePicked ? '-268px' : '0' });
+  animation: ${FadeIn} .5s linear 1;
 `
 
 const Title = styled.h1`
@@ -51,6 +61,7 @@ const Title = styled.h1`
   font-weight: normal;
   text-align: center;
   padding: 24px 12px;
+  animation: ${FadeIn} .5s linear 1;
 `
 
 const Colors = ['#FDD161', '#E8A13D', '#29A4AC', '#445561', '#AFD5D9'];

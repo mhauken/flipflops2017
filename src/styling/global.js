@@ -71,6 +71,7 @@ injectGlobal`
     }
 
     .example-enter.example-enter-active {
+      z-index: 99999999;
       transform: translate3d(0,0,0);
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
       transition: transform .5s cubic-bezier(.4,.6,.42,1.35), box-shadow .5s cubic-bezier(.4,.6,.42,1.35);

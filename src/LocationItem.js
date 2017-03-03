@@ -66,6 +66,14 @@ const Time = styled.span`
   z-index: 1;
 `
 
+const Walk = styled.span`
+  position: absolute;
+  top: 28px;
+  right: 12px;
+  font-size: 12px;
+  z-index: 1;
+`
+
 class LocationItem extends Component {
   shortenDescription = () => {
     return `${this.props.description.substring(0, 125)}...`
@@ -80,8 +88,9 @@ class LocationItem extends Component {
           <p>{this.shortenDescription()}</p>
         </Content>
 
-        { this.props.geoLocationData && this.props.geoLocationData.distance && <Time>{this.props.geoLocationData.distance}</Time> }
-        <Time>{TimeFormatter(this.props.timeDuration)}</Time>
+        { this.props.geoLocationData && this.props.geoLocationData.distance &&
+          <Walk>{this.props.geoLocationData.distance} m</Walk> }
+          <Time>{TimeFormatter(this.props.timeDuration)}</Time>
 
       </LinkLocation>
     );

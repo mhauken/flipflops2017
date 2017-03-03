@@ -3,8 +3,18 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import CommentList from './CommentList';
 import OpenStreetMap from './OpenStreetMap';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Wrapper from './styling/wrapper';
+
+const appear = keyframes`
+  from {
+    transform: translateY(-50px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+`;
 
 const Back = styled(Link)`
   width: 100%;
@@ -29,15 +39,20 @@ const Picture = styled.div`
   margin-bottom: 12px;
   background-size: cover;
   background-position: center;
+  animation: ${appear} .4s linear 1;
+  box-shadow: 0px -4px 18px 0px rgba(0, 0, 0, 0.2);
 `
 
 const Title = styled.h1`
-
+  margin-bottom: 6px;
+  animation: ${appear} .4s linear 1;
 `
 
 const Description = styled.p`
   margin-bottom: 24px;
+  animation: ${appear} .4s linear 1;
 `
+
 
 class LocationDetails extends Component {
   getLocation = () => {
