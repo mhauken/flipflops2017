@@ -59,7 +59,6 @@ const Walk = styled.span`
   color: #AFD5D9;
   margin-bottom: 8px;
   display: inline-block;
-  animation: ${appear} .4s  ease-in 1;
 `
 
 
