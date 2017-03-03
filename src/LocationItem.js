@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import TimeFormatter from './TimeFormatter';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const appear = keyframes`
+  from {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
 
 const WrapperObject = styled.div`
   margin: auto;
@@ -12,6 +24,7 @@ const WrapperObject = styled.div`
 const WrappedLink = (props) => <Link to={props.to} className={props.className} children={props.children} />
 
 const LinkLocation = styled(WrappedLink)`
+  animation: ${appear} .3s linear 1;
   display: block;
   width: 100%;
   margin-bottom: 24px;
@@ -29,8 +42,8 @@ const LinkLocation = styled(WrappedLink)`
   &::after {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
     top: 0;
     left: 0;
     background-color: ${props => props.color};

@@ -18,7 +18,7 @@ const locations = [
     image: '/locations/vegueta.jpg',
     hidden: false,
     title: 'Vegueta',
-    timeDuration: 25,
+    timeDuration: 35,
     position: {lat: 28.098467, lng: -15.415550},
     description: "This is a district",
     comments: []
@@ -28,7 +28,7 @@ const locations = [
     image: '/locations/jardin.jpg',
     hidden: false,
     title: 'Jardin Canario',
-    timeDuration: 25,
+    timeDuration:55,
     position: {lat: 28.066520, lng: -15.456779},
     description: "This is a botanic garden",
     comments: []
@@ -38,7 +38,7 @@ const locations = [
     image: '/locations/colon.jpg',
     hidden: false,
     title: 'Casa de Colon',
-    timeDuration: 25,
+    timeDuration: 60,
     position: {lat: 28.101583, lng: -15.414071},
     description: "This is a house",
     comments: []
@@ -48,7 +48,7 @@ const locations = [
     image: '/locations/bandama.jpg',
     hidden: false,
     title: 'Caldera de Bandama',
-    timeDuration: 25,
+    timeDuration: 86,
     position: {lat: 28.031720, lng: -15.455764},
     description: "This is a volcano",
     comments: []
@@ -58,7 +58,7 @@ const locations = [
     image: '/locations/triana.jpg',
     hidden: false,
     title: 'Calle Triana',
-    timeDuration: 25,
+    timeDuration: 120,
     position: {lat: 28.106050, lng: -15.416341},
     description: "No idea what is it",
     comments: []
@@ -68,7 +68,7 @@ const locations = [
     image: '/locations/doramas.jpg',
     hidden: false,
     title: 'Doramas Park',
-    timeDuration: 25,
+    timeDuration: 380,
     position: {lat: 28.120392, lng: -15.416341},
     description: "This is a park",
     comments: []
@@ -78,7 +78,7 @@ const locations = [
     image: '/locations/museo.jpg',
     hidden: false,
     title: 'Museo Elder de la Ciencia y la Tecnologia',
-    timeDuration: 25,
+    timeDuration: 280,
     position: {lat: 28.140908, lng: -15.429839},
     description: "This is a museum",
     comments: []
@@ -88,7 +88,7 @@ const locations = [
     image: '/locations/centro.jpg',
     hidden: false,
     title: 'Centro Comercial Las Arenas',
-    timeDuration: 25,
+    timeDuration: 45,
     position: {lat: 28.128353, lng: -15.448291},
     description: "This is a mall",
     comments: []
@@ -98,7 +98,7 @@ const locations = [
     image: '/locations/cathedral.jpg',
     hidden: false,
     title: 'Catedral de Santa Ana',
-    timeDuration: 25,
+    timeDuration: 150,
     position: {lat: 28.100814, lng: -15.414767},
     description: "This is a cathedral",
     comments: []

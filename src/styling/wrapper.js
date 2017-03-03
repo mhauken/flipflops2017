@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const WrapperObject = styled.div`
   margin: auto;
   max-width: 350px;
-  padding: 24px;
+  padding: 12px;
 `;
 
 const Wrapper  = (props) => {

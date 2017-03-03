@@ -35,6 +35,10 @@ const Picture = styled.div`
   background-size: cover;
 `
 
+const Title = styled.h1`
+
+`
+
 class LocationDetails extends Component {
   getLocation = () => {
     const id = this.props.routeParams.locationId;
@@ -51,8 +55,8 @@ class LocationDetails extends Component {
           <OpenStreetMap position={[location.position.lat, location.position.lng]} zoom={20}/>
         <Wrapper>
           <Picture image={location.image} />
+          <Title>{location.title}</Title>
           <p>{location.description}</p>
-
           <CommentList comments={location.comments} locationId={location.id} dispatch={this.props.dispatch}/>
         </Wrapper>
       </div>
