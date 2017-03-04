@@ -78,7 +78,7 @@ class AddComment extends Component {
     }
     let username = this.state.username;
     if (isEmptyString(username)) {
-      username = 'Anonym';
+      username = 'Anonymous';
     }
     this.props.dispatch(addComment(username, this.state.comment, this.props.locationId));
     this.setState({
