@@ -22,7 +22,7 @@ const reducer = (state = {}, action) => {
           return {
             ...location,
             geoLocationData: geoLocationData,
-            timeDuration: geoLocationData.time,
+            // timeDuration: geoLocationData.time, // TODO it's not time needed to get there, but time needed for sightseeing
           }
         }).sort((location1, location2) => location1.timeDuration < location2.timeDuration),
       };
