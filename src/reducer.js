@@ -17,10 +17,14 @@ const reducer = (state = {}, action) => {
       return {
         ...state,
         currentPosition: action.currentPosition,
-        locations: state.locations.map(location => ({
-          ...location,
-          geoLocationData: getGeolocationDataForMap(location.position, action.currentPosition),
-        })).sort((location1, location2) => location1.timeDuration < location2.timeDuration),
+        locations: state.locations.map(location => {
+          const geoLocationData = getGeolocationDataForMap(location.position, action.currentPosition);
+          return {
+            ...location,
+            geoLocationData: geoLocationData,
+            timeDuration: geoLocationData.time,
+          }
+        }).sort((location1, location2) => location1.timeDuration < location2.timeDuration),
       };
     case 'PICK_TIME':
       const timePicked = getTimePicked(state.timeDurations, action.timeDuration);
