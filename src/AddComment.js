@@ -61,6 +61,9 @@ const Form = styled.form`
   margin-bottom: 12px;
 `
 
+const isEmptyString = (str) => {
+  return !str || str === '';
+};
 
 class AddComment extends Component {
   constructor(props) {
@@ -70,10 +73,14 @@ class AddComment extends Component {
 
   submitNewComment = (evt) => {
     evt.preventDefault();
-    if(!this.state.comment || !this.state.username) {
+    if (isEmptyString(this.state.comment)) {
       return;
     }
-    this.props.dispatch(addComment(this.state.username, this.state.comment, this.props.locationId));
+    let username = this.state.username;
+    if (isEmptyString(username)) {
+      username = 'Anonymous';
+    }
+    this.props.dispatch(addComment(username, this.state.comment, this.props.locationId));
     this.setState({
       comment: '',
       username: '',

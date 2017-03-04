@@ -1,10 +1,6 @@
 import moment from 'moment';
 import getGeolocationDataForMap from './GeoLocationHelper';
 
-const isEmptyString = (str) => {
-  return !str || str === '';
-};
-
 function getTimePicked(timeDurations, chosenTime) {
   const chosenDuration = timeDurations.find(duration => duration.duration === chosenTime);
   if(chosenDuration) {
@@ -21,10 +17,14 @@ const reducer = (state = {}, action) => {
       return {
         ...state,
         currentPosition: action.currentPosition,
-        locations: state.locations.map(location => ({
-          ...location,
-          geoLocationData: getGeolocationDataForMap(location.position, action.currentPosition),
-        })).sort((location1, location2) => location1.timeDuration < location2.timeDuration),
+        locations: state.locations.map(location => {
+          const geoLocationData = getGeolocationDataForMap(location.position, action.currentPosition);
+          return {
+            ...location,
+            geoLocationData: geoLocationData,
+            timeDuration: geoLocationData.time,
+          }
+        }).sort((location1, location2) => location1.timeDuration < location2.timeDuration),
       };
     case 'PICK_TIME':
       const timePicked = getTimePicked(state.timeDurations, action.timeDuration);
@@ -38,18 +38,12 @@ const reducer = (state = {}, action) => {
         timePicked,
         locations: state.locations.map(location => ({
           ...location,
-          hidden: timePicked && location.timeDuration > timePicked
+          hidden: timePicked && location.timeDuration > timePicked && timePicked < 180 // TODO hack for 3H+ so that every item is showed
         })).sort((location1, location2) =>
           state.currentPosition ? location1.geoLocationData.distance > location2.geoLocationData.distance : location1.timeDuration < location2.timeDuration
         ),
       }
     case 'ADD_COMMENT':
-      if (isEmptyString(action.comment)) {
-        return {...state};
-      }
-      if (isEmptyString(action.username)) {
-        action.username = 'Anonym';
-      }
       const comment = {
         comment: action.comment,
         username: action.username,

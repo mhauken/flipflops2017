@@ -37,9 +37,16 @@ const calculateGeoMidpoint = (location1, location2) => {
   return {lat: rad2deg(lat3), lng: rad2deg(lon3)};
 }
 
+const WALK_TIME_RATIO = 60 / 5; // 5 km per 60 min (per hour)
 const getGeolocationDataForMap = (location1, location2) => {
   const distance = calculcateDistanceBetweenLocations(location1, location2);
-  return { midpoint: calculateGeoMidpoint(location1, location2), zoom: calculcateZoom(distance), distance };
+  const time = parseInt((distance / 1000) * WALK_TIME_RATIO);
+  return {
+    midpoint: calculateGeoMidpoint(location1, location2),
+    zoom: calculcateZoom(distance),
+    distance,
+    time
+  };
 }
 
 export default getGeolocationDataForMap;

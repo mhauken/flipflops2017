@@ -75,7 +75,7 @@ const locations = [
     hidden: false,
     title: 'Doramas Park',
     timeDuration: 380,
-    position: {lat: 28.120392, lng: -15.416341},
+    position: {lat: 28.078, lng: -15.5889},
     description: "This is a park",
     comments: [],
     distance: null,
