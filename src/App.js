@@ -37,6 +37,10 @@ class App extends Component {
     }
   }
 
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
     return (
       <Provider store={store}>

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { pickTime } from './actions';
+import React, {Component} from 'react';
+import {pickTime} from './actions';
 import styled from 'styled-components';
 
 const TimePickWrapper = styled.div`
@@ -68,26 +68,21 @@ class TimePicker extends Component {
   }
 
   getCheckbox = (timeDuration) => {
-    return timeDuration.isChosen ?
-      <Checkbox id={timeDuration.duration}
-                name="duration"
-                type="radio"
-                checked
-                onClick={this.pickTimeWrapper(timeDuration.duration)} /> :
-      <Checkbox id={timeDuration.duration}
-              name="duration"
-              type="radio"
-              onClick={this.pickTimeWrapper(timeDuration.duration)} />
+    return <Checkbox id={timeDuration.duration}
+                     name="duration"
+                     type="radio"
+                     checked={timeDuration.isChosen}
+                     onChange={this.pickTimeWrapper(timeDuration.duration)}/>;
   }
 
   render() {
     return (
       <TimePickWrapper>
-      { this.props.timeDurations.map(timeDuration =>
-        <TimePick key={timeDuration.duration}>
-          {this.getCheckbox(timeDuration)}
-          <Label htmlFor={timeDuration.duration}>{timeDuration.label}</Label>
-        </TimePick> )}
+        { this.props.timeDurations.map(timeDuration =>
+          <TimePick key={timeDuration.duration}>
+            {this.getCheckbox(timeDuration)}
+            <Label htmlFor={timeDuration.duration}>{timeDuration.label}</Label>
+          </TimePick>)}
       </TimePickWrapper>
     );
   }
