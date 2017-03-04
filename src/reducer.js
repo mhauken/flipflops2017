@@ -38,7 +38,7 @@ const reducer = (state = {}, action) => {
         timePicked,
         locations: state.locations.map(location => ({
           ...location,
-          hidden: timePicked && location.timeDuration > timePicked
+          hidden: timePicked && location.timeDuration > timePicked && timePicked < 180 // TODO hack for 3H+ so that every item is showed
         })).sort((location1, location2) =>
           state.currentPosition ? location1.geoLocationData.distance > location2.geoLocationData.distance : location1.timeDuration < location2.timeDuration
         ),
